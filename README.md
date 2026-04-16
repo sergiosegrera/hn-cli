@@ -7,7 +7,7 @@ A minimal Hacker News CLI built with Bun. Browse top/new/best stories, read comm
 Requires [Bun](https://bun.com).
 
 ```bash
-git clone https://github.com/srgpsk/hn-cli.git
+git clone https://github.com/sergiosegrera/hn-cli.git
 cd hn-cli
 bun install
 bun link
