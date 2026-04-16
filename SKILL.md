@@ -39,15 +39,16 @@ hn comments <story_id> [-l <number>]
 - "best stories" → `hn stories -s best`
 - "open story 12345" → `hn go 12345`
 - "comments on 12345" → `hn comments 12345`
-- "what is going on with 3" / "tell me about story 5" / "summarize #2" / "what's that about" → fetch and summarize the article (see below)
+- A bare number (e.g. `3`, `7`) after a story list → summarize that story (see below)
+- "what is going on with 3" / "tell me about story 5" / "summarize #2" / "what's that about" → summarize that story (see below)
 
 Run the command and display the output directly to the user.
 
 ## Summarizing a story
 
-When the user asks what a story is about, wants a summary, or asks "what is going on with <N>" where N refers to a position in the previously listed stories:
+When the user replies with a bare number, or asks what a story is about, or wants a summary:
 
-1. **Identify the story** — map the number/reference to the HN story ID and URL from the most recently listed stories in the conversation.
+1. **Identify the story** — map the number to its position in the most recently listed stories in the conversation, then get its HN story ID and URL.
 2. **Fetch the article** — use the `mcp__exa__web_fetch_exa` tool with the story's URL to retrieve the full content. If that's unavailable, fall back to `WebFetch`.
 3. **Summarize** — provide a concise summary of what the article is about: the main point, key arguments or findings, and why it might be interesting to an HN audience.
 
