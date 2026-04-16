@@ -17,9 +17,9 @@ hn stories
 
 **List stories:**
 ```bash
-hn stories [-s top|newest|best] [-l <number>]
+hn stories [-s top|newest|best] [-l <number>] [-o <offset>]
 ```
-Default: top 10. Adjust `-s` and `-l` based on what the user asks for.
+Default: top 10. Adjust `-s`, `-l`, and `-o` based on what the user asks for.
 
 **Open a story in the browser:**
 ```bash
@@ -39,6 +39,7 @@ hn comments <story_id> [-l <number>]
 - "best stories" → `hn stories -s best`
 - "open story 12345" → `hn go 12345`
 - "comments on 12345" → `hn comments 12345`
+- "more" / "show more" / "next" after a story list → `hn stories -o <current_offset + current_limit>` using the same sort and limit as before
 - A bare number (e.g. `3`, `7`) after a story list → summarize that story (see below)
 - "what is going on with 3" / "tell me about story 5" / "summarize #2" / "what's that about" → summarize that story (see below)
 

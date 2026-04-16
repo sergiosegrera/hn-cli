@@ -69,10 +69,12 @@ program
   .description("List stories from HackerNews")
   .option("-s, --sort <type>", "sort by: top, newest, or best", "top")
   .option("-l, --limit <number>", "number of stories to show", "10")
+  .option("-o, --offset <number>", "number of stories to skip", "0")
   .action(async (options) => {
     const limit = parseInt(options.limit);
+    const offset = parseInt(options.offset);
     const ids = await fetchStoryIds(options.sort);
-    const stories = await Promise.all(ids.slice(0, limit).map(fetchItem));
+    const stories = await Promise.all(ids.slice(offset, offset + limit).map(fetchItem));
 
     console.log(
       chalk.bold(`\n  ${options.sort === "best" ? "Best" : options.sort === "newest" ? "Newest" : "Top"} Stories\n`)
